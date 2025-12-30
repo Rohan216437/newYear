@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For the Ones Who Stayed</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<canvas id="confetti"></canvas>
+<body>
+    <div class="hearts"></div>
+
+    <div class="app">
+
+        <!-- PAGE 1 : INTRO -->
+        <section class="page active">
+          <h1>Some people stay.</h1>
+          <p>
+            This is a thank-you for this year<br>
+            and the years we haven’t lived yet.
+          </p>
+          <button onclick="goToPage(1)">Next</button>
+        </section>
+      
+        <!-- PAGE 2 : FRIEND 1 -->
+        <section class="page">
+          <img src="images/friend1.jpg" class="photo" alt="Friend One">
+          <h1>Soniya</h1>
+          <p>
+            You are one of the most genuine person in my life.  
+            You’ve supported me so many times and your presence is the most divine thing.  
+            We’ve had our conflicts, misunderstandings, and moments where things felt heavy and broke down,  
+            but what I love most is that we never gave up on figuring it out and see now still together.  
+            
+            You stayed, you listened, and you cared, even when it wasn’t easy.  
+            And I want to thank you with this year ending.
+            </p>
+            
+          <button onclick="goToPage(2)">Next</button>
+        </section>
+      
+        <!-- PAGE 3 : FRIEND 2 -->
+        <section class="page">
+          <img src="images/friend2.jpg" class="photo" alt="Friend Two">
+          <h1>Dhruv</h1>
+          <p>
+            With you, it’s never just friendship, it is more liek brotherhood.  
+            We’ve done so many things together, shared laughs and many conversations.  
+            You’ve been someone I could rely on without overthinking it.  
+            
+            You stand beside me, and keep things grounded.  
+            You are not just a friend, but as someone who genuinely feels like family.
+            And thanks to you also.
+            </p>
+            
+          <button onclick="goToPage(3)">Next</button>
+        </section>
+      
+        <!-- PAGE 4 : GROUP -->
+        <!-- PAGE 4 : GROUP -->
+        <section class="page">
+            <div class="doodle-hint">
+                <div class="doodle-text">click the photos</div>
+                    <div class="arrows">
+                        <span>➜</span>
+                        <span>➜</span>
+                        <span>➜</span>
+                    </div>
+            </div>
+              
+            <div class="photo-deck" onclick="nextGroupPhoto()">
+                <img src="images/group1.jpg" class="deck-photo active">
+                <img src="images/group2.jpg" class="deck-photo">
+                <img src="images/group3.jpg" class="deck-photo">
+                <img src="images/group4.jpg" class="deck-photo rotate-left">
+                <img src="images/group5.jpg" class="deck-photo">
+                <img src="images/group6.jpg" class="deck-photo">
+                <img src="images/group7.jpg" class="deck-photo rotate-left">
+                <img src="images/group8.jpg" class="deck-photo">
+                <img src="images/group9.jpg" class="deck-photo">
+                <img src="images/group10.jpg" class="deck-photo">
+                <img src="images/group11.jpg" class="deck-photo">
+              </div>
+              
+        
+            <h1>Us</h1>
+            <p>
+                Together, we are not just friends but BROSw.  
+                Now we got different lifes but the same intention that to be there for each other.  
+                I genuinely wish the best for both of you, every single day.  
+                
+                I support you, believe in you, and hope we continue growing individually and together.  
+                No matter where life takes us, what we share is something I’ll always value.
+                Thanks to both of you for being there always.
+            </p>
+        
+            <button onclick="goToPage(4)">Next</button>
+        </section>
+  
+      
+        <!-- PAGE 5 : FUTURE -->
+        <section class="page">
+          <h1>The Years Ahead</h1>
+          <p>
+            We’ll change.<br>
+            We’ll grow.<br>
+            Somehow, we’ll still be us.
+          </p>
+          <button onclick="goToPage(5)">Next</button>
+        </section>
+
+        <!-- PAGE 6 : HAPPY NEW YEAR -->
+        <section class="page">
+            <h1>Happy New Year 🎉</h1>
+            <p>
+              Here’s to another year of memories, growth,  
+              laughter, arguments we survive, and moments we’ll remember.  
+            
+              I’m grateful for both of you —  
+              today, tomorrow, and in all the years ahead.
+            </p>
+        
+            <button onclick="goToPage(0)">Start Again</button>
+        </section>
+  
+      
+      </div>
+      
+
+<script src="script2.js"></script>
+</body>
+</html>

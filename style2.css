@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f6f3;
+    height: 100vh;
+    overflow: hidden;
+  }
+  /* CONFETTI CANVAS */
+#confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+  
+  
+  /* APP */
+  .app {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+  }
+  
+  /* PAGES */
+  .page {
+    position: absolute;
+    inset: 0;
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.96);
+    transition: all 0.6s ease;
+    pointer-events: none;
+  }
+  
+  .page.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+  
+  h1 {
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.6;/* IMAGE STYLES */
+    .photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      animation: fadeZoom 0.8s ease;
+    }
+    
+    /* GROUP PHOTOS */
+    .group-photos {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+    
+    .group-photos img {
+      width: 130px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      animation: fadeZoom 0.8s ease;
+    }
+    
+    /* IMAGE ANIMATION */
+    @keyframes fadeZoom {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    /* MOBILE TWEAK */
+    @media (max-width: 480px) {
+      .photo {
+        width: 150px;
+        height: 150px;
+      }
+    
+      .group-photos img {
+        width: 120px;
+        height: 160px;
+      }
+    }
+    
+  }
+  
+  button {
+    align-self: center;
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+/* FLOATING HEARTS */
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .heart {
+    position: absolute;
+    bottom: -20px;
+    animation: floatUp linear forwards;
+    opacity: 0.85; /* was too transparent */
+  }
+  
+  
+  @keyframes floatUp {
+    from {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+    to {
+      transform: translateY(-120vh) scale(1.4);
+      opacity: 0;
+    }
+  }
+  
+  
+  /* MOBILE TUNING */
+  @media (max-width: 480px) {
+    .page {
+      padding: 5%;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+
+  /* IMAGE STYLES */
+.photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    animation: fadeZoom 0.8s ease;
+  }
+  
+  /* GROUP PHOTOS */
+  .group-photos {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+  
+  .group-photos img {
+    width: 180px;
+    height: 120px;              /* horizontal-friendly */
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    animation: fadeZoom 0.8s ease;
+  }
+  
+  
+  /* IMAGE ANIMATION */
+  @keyframes fadeZoom {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* MOBILE TWEAK */
+  @media (max-width: 480px) {
+    .photo {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .group-photos img {
+        width: 160px;
+        height: 105px;
+      }
+  }
+  
+
+  /* PHOTO DECK */
+  .photo-deck {
+    position: relative;
+    width: 90vw;          /* almost full screen width */
+    max-width: 420px;     /* safe upper limit */
+    height: 65vh;         /* tall so vertical photos look good */
+    max-height: 600px;
+    margin: 0 auto 30px;
+    cursor: pointer;
+  }
+  
+  .deck-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    opacity: 0;
+    transform: scale(0.96);
+    transition: all 0.5s ease;
+  }
+  
+  .deck-photo.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 3;
+  }
+
+  /* 1st card underneath */
+.deck-photo:not(.active):nth-child(1),
+.deck-photo:not(.active):nth-child(2) {
+  opacity: 0.35;
+  z-index: 2;
+  transform: translateY(14px) rotate(-4deg) scale(0.96);
+}
+
+/* 2nd card underneath */
+.deck-photo:not(.active):nth-child(3),
+.deck-photo:not(.active):nth-child(4) {
+  opacity: 0.2;
+  z-index: 2;
+  transform: translateY(26px) rotate(3deg) scale(0.93);
+}
+
+/* hide deeper cards */
+.deck-photo:not(.active):nth-child(n+5) {
+  opacity: 0;
+}
+
+@media (max-width: 480px) {
+    .deck-photo:not(.active):nth-child(1),
+    .deck-photo:not(.active):nth-child(2) {
+      transform: translateY(10px) rotate(-2deg) scale(0.97);
+    }
+  
+    .deck-photo:not(.active):nth-child(3),
+    .deck-photo:not(.active):nth-child(4) {
+      transform: translateY(20px) rotate(2deg) scale(0.94);
+    }
+  }
+  
+  /* fake depth for next cards */
+  /* .deck-photo:nth-child(2) {
+    opacity: 0.5;
+    transform: scale(0.94) translateY(6px);
+    z-index: 2;
+  }*/
+
+  
+  /* MOBILE */
+  @media (max-width: 480px) {
+    .photo-deck {
+      width: 80vw;
+      height: 45vh;
+    }
+    .deck-photo:nth-child(1) {
+        height: 80%;
+        top: 100px;
+    } 
+    .deck-photo:nth-child(2) {
+        height: 68%;
+        top: 125px;
+    } 
+    .deck-photo:nth-child(3) {
+        height: 50%;
+        top: 125px;
+    } 
+    .deck-photo:nth-child(4) {
+        height: 50%;
+        top: 160px;
+    } 
+    .deck-photo:nth-child(6) {
+        height: 75%;
+        top: 75px
+    } 
+    .deck-photo:nth-child(7) {
+        height: 60%;
+        top: 130px
+    } 
+    .deck-photo:nth-child(8) {
+        height: 70%;
+        top: 130px;
+        object-position: -30px center;
+    } 
+    .deck-photo:nth-child(10) {
+        height: 70%;
+        top: 110px;
+    } 
+    .deck-photo:nth-child(11) {
+        height: 64%;
+        top: 110px;
+    } 
+  }
+
+
+/* DESKTOP: CLEAN FIT WITHOUT BREAKING STACK */
+@media (min-width: 769px) {
+    .deck-photo {
+      object-fit: contain;
+      object-position: center center;
+    }
+  
+    .deck-photo.active {
+      opacity: 1;
+      z-index: 5;
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+  
+    .deck-photo:not(.active):nth-child(1),
+    .deck-photo:not(.active):nth-child(2) {
+      opacity: 0.35;
+      z-index: 3;
+      transform: translateY(16px) rotate(-4deg) scale(0.96);
+    }
+  
+    .deck-photo:not(.active):nth-child(3),
+    .deck-photo:not(.active):nth-child(4) {
+      opacity: 0.2;
+      z-index: 2;
+      transform: translateY(30px) rotate(3deg) scale(0.93);
+    }
+  
+    .deck-photo:not(.active):nth-child(n+5) {
+      opacity: 0;
+    }
+  }
+  
+  
+
+  /* DOODLE HINT */
+.doodle-hint {
+    position: relative;
+    margin-bottom: -30px;
+    pointer-events: none; /* don’t block clicks */
+  }
+  
+  /* arrows */
+  .arrows {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    transform: rotate(-10deg);
+    animation: floatHintArrow 2.5s ease-in-out infinite;
+  }
+  
+  .arrows span {
+    font-size: 28px;
+    color: #333;
+  }
+  
+  /* text */
+  .doodle-text {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: #333;
+    margin-top: 4px;
+    transform: rotate(-4deg);
+    animation: floatHint 2.5s ease-in-out infinite;
+  }
+  
+  /* subtle float */
+  @keyframes floatHint {
+    0%   { transform: translateY(0) rotate(-4deg); }
+    50%  { transform: translateY(-6px) rotate(-6deg); }
+    100% { transform: translateY(0) rotate(-4deg); }
+  }
+  @keyframes floatHintArrow {
+    0%   { transform: translateY(0) rotate(90deg); }
+    50%  { transform: translateY(-6px) rotate(95deg); }
+    100% { transform: translateY(0) rotate(90deg); }
+  }
+  
+  

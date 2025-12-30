@@ -270,6 +270,13 @@
 .deck-photo:not(.active):nth-child(n+5) {
   opacity: 0;
 }
+/* REMOVE BLUE CLICK / TAP HIGHLIGHT */
+.photo-deck,
+.deck-photo {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 
 @media (max-width: 480px) {
     .deck-photo:not(.active):nth-child(1),

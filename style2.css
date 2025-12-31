@@ -328,9 +328,6 @@
         height: 50%;
         top: 160px;
     } 
-    .deck-photo:nth-child(5) {
-        top: 21px;
-    } 
     .deck-photo:nth-child(6) {
         height: 75%;
         top: 75px
@@ -343,9 +340,6 @@
         height: 70%;
         top: 130px;
         object-position: -30px center;
-    } 
-    .deck-photo:nth-child(9) {
-        top: 21px;
     } 
     .deck-photo:nth-child(10) {
         height: 70%;
